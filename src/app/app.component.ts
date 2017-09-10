@@ -29,7 +29,7 @@ export class AppComponent {
   msgVal: string;
 
 
-  constructor(public af:AngularFireDatabase, private authService : AuthService){
+  constructor(public af:AngularFireDatabase, public authService : AuthService){
     this.items = af.list('/messages',{
       query:{
         limitToLast:5
@@ -43,9 +43,7 @@ export class AppComponent {
   login(){
     this.authService.login();
   }
-  logout(){
-    this.authService.logout();
-  }
+
   changeName(){
     if(!this.userName || !this.userDep || !this.userRealName)
     {

@@ -1,15 +1,7 @@
-
-
-
-<members-list></members-list>
-
-
-<div class="row columns">
+<div class="row" >
   <div>
     <button (click)="login()" *ngIf="!authService.user">Login With Facebook</button>
-    <button (click)="logout()" *ngIf="authService.user">LogOut</button>
   </div>
-
   <div class="" *ngIf="authService.profile.name ==null && authService.user " >
     <input class="infor" placeholder="你的外号" [(ngModel)]="userName" >
     <input class="infor" placeholder="部门" [(ngModel)]="userDep" >
@@ -19,6 +11,18 @@
   <div class="welcome_st" *ngIf="authService.profile.name !=null && authService.user " >
     Welcome back ,   {{authService.profile.name}}
   </div>
+
+
+</div>
+
+<float-button></float-button>
+<members-list></members-list>
+
+
+<div class="row columns">
+
+
+
 
 
 

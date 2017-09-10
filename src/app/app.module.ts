@@ -21,6 +21,7 @@ import {HttpModule} from "@angular/http";
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
 import { KeysPipe } from './keys.pipe';
+import { FloatButtonComponent } from './float-button/float-button.component';
 
 
 export const firebaseConfig = {
@@ -37,7 +38,8 @@ export const firebaseConfig = {
   declarations: [
     AppComponent,
     MembersComponent,
-    KeysPipe
+    KeysPipe,
+    FloatButtonComponent
   ],
   imports: [
     BrowserModule,
