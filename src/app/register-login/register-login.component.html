@@ -1,0 +1,102 @@
+
+<div class="row" id="r-l-element"  >
+
+  <div  class="valign-wrapper"   >
+    <div class="card" id="login_page"  *ngIf="!auth.user && !auth.profile.realName">
+      <div class="card-content ">
+        <div class="login_form">
+          <img src="./assets/images/logo.png">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="loginid" type="email" class="validate" [(ngModel)]="login.email">
+              <label for="loginid">Email</label>
+            </div>
+            <div class="input-field col s12">
+              <input id="loginpw" type="password" class="validate" [(ngModel)]="login.password">
+              <label for="loginpw">Password</label>
+            </div>
+            <button class="btn wave-effect waves-light deep-purple darken-1" (click)="loginWithEmail()">登录</button>
+          </div>
+
+        </div>
+
+
+        <a class="activator signUpLabel" >注册账号</a>
+        <div class=""> <a class=" signUpLabel" (click)="loginWithFacebook()" >Facebook登录</a></div>
+       </div>
+      <div class="card-reveal">
+        <div class="row">
+          <span class="card-title grey-text text-darken-4 right">注册<i class="material-icons right">close</i></span>
+        </div>
+
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="id" type="email" class="validate"  [(ngModel)]="newAccount.email">
+            <label for="id">邮箱</label>
+          </div>
+
+          <div class="input-field col s12">
+            <input id="pw" type="password" class="validate" [(ngModel)]="newAccount.password" >
+            <label for="pw">密码</label>
+          </div>
+          <div class="input-field col s12">
+            <input id="rppw" type="password" class="validate" [(ngModel)]="newAccount.repeatPassword" >
+            <label for="rppw">重复密码</label>
+          </div>
+
+
+
+          <button class="btn wave-effect waves-light deep-purple darken-1" (click)="registerEmail()">注册</button>
+
+        </div>
+
+      </div>
+    </div>
+
+
+
+    <div class="card" id="info-init"  *ngIf="auth.user && !auth.profile.realName">
+      <div class="card-content ">
+
+        <div class="row">
+          <div class="input-field col s12" >
+            <input id="name" type="text" class="validate" [(ngModel)]="createProfile.realName" >
+            <label for="pw">真实姓名</label>
+          </div>
+
+
+
+            <div class="input-field col s12">
+
+              <div class="row">
+                <div [ngClass]="{'select':'活动部' == createProfile.dep }"   class="chip" (click)="selectDep('活动部')">
+                  活动部
+                </div>
+                <div  [ngClass]="{'select':'新闻部' == createProfile.dep }" class="chip" (click)="selectDep('新闻部')">
+                  新闻部
+                </div>
+                <div  [ngClass]="{'select':'设计部' == createProfile.dep }" class="chip" (click)="selectDep('设计部')">
+                  设计部
+                </div>
+                <div [ngClass]="{'select':'外联部' == createProfile.dep }"  class="chip" (click)="selectDep('外联部')">
+                  外联部
+                </div>
+
+              </div>
+
+            </div>
+        </div>
+        <button class="btn wave-effect waves-light deep-purple darken-1" (click)="createProfileFn()">建立资料</button>
+
+
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+

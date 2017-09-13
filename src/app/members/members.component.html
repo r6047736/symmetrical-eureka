@@ -1,0 +1,88 @@
+
+
+
+<table class="centered"  *ngIf="auth.profile.realName !=null && auth.user" >
+  <thead>
+  <tr>
+    <th>姓名</th>
+    <th>部门</th>
+    <th>日志</th>
+    <th>积分</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let member of members | async">
+    <td ><span *ngIf="member.notask" class="valign-wrapper needtask "></span ><div (click)="goTaksDetail(member.id)">{{member.realName}}</div> </td>
+    <td>{{member.dep}}</td>
+    <td >
+      <a class="toggleEvent"   (click)="selectForDetail(member)"  >{{ member == selectDetailOfSomeone ? '详细事件':'查看详细'}}</a>
+      <div *ngIf="member == selectDetailOfSomeone" >
+        <div [ngClass]="{'pending': 'pending'==member?.activities[k]?.status,'approval':member?.activities[k]?.status=='approval' }"  class="activity_info" *ngFor=" let k of member?.activities | keys ">
+          {{member?.activities[k]?.content | slice:0:20 }}<a *ngIf="member?.activities[k]?.status=='pending'" style="float:right" (click)="approveEvent(member,k)">待审核</a>
+        </div>
+      </div>
+      </td>
+    <td>{{scores[member.realName]}}</td>
+  </tr>
+
+
+
+
+  </tbody>
+</table>
+
+
+
+
+
+
+<!-- Modal Structure -->
+<div id="addEvent" class="modal">
+  <div class="modal-content"  >
+    <h4>添加任务</h4>
+    <div class="row">
+        <div class="col s12">
+          <div class="row">
+            <div class="input-field col s6">
+              <input  id="name" type="text" class="validate" value="{{auth.profile.realName}}"  disabled>
+              <label for="name"></label>
+            </div>
+
+            <div class="input-field col s6"><label>完成日期</label>
+              <input type="text" id="date" class="datepicker" (ngModel)="event.finishDate">
+
+            </div>
+          </div>
+          <div class="row">
+
+
+            <div class="col s12">
+              <label>活动主题</label>
+              <div [ngClass]="{'select':a.name ==event.mainEventName }" class="chip" *ngFor="let a of tsks | async" (click)="selectEvent(a.name)">
+                {{a.name}}
+              </div>
+
+
+              <div [ngClass]="{'select': 'other' ==event.mainEventName }" class="chip" (click)="selectEvent('other')" > 其他
+              </div>
+
+            </div>
+
+            <div class="input-field col s9">
+              <input id="content" type="text" class="validate" [(ngModel)]="event.content">
+              <label for="content">任务详情</label>
+            </div>
+            <div class="input-field col s3">
+              <input id="score" type="number" class="validate" [(ngModel)]="event.score" >
+              <label for="score">积分</label>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a  class="modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    <a  class="modal-action  waves-effect waves-green btn-flat" (click)="addEvent()">保存</a>
+
+  </div>
+</div>

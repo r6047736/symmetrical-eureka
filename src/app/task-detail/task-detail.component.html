@@ -1,0 +1,87 @@
+<div class="row">
+  <div>
+    <div class="goback" (click)="goBack()"><a>返回</a></div>
+  </div>
+
+<div class="col s12">
+  <table class="bordered">
+    <thead>
+    <tr>
+      <th>主题</th>
+      <th>日期</th>
+      <th>内容</th>
+      <th>积分</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of (tasks | async)" (click)="openModal(task)" >
+      <td>{{task.mainEventName}}</td>
+      <td > {{task.content}}</td>
+      <td>{{task.finishDate}}</td>
+
+      <td>{{task.score}}</td>
+    </tr>
+
+    </tbody>
+  </table>
+
+</div>
+</div>
+
+<div id="updateEvent" class="modal">
+  <div class="modal-content"  >
+    <h4>修改任务</h4>
+    <div class="row">
+      <div class="col s12">
+        <div class="row">
+          <div class="input-field col s6">
+            <input  id="name" type="text" class="validate"   disabled [(ngModel)]="updateTask.tasker" >
+            <label for="name"></label>
+          </div>
+
+          <div class="input-field col s6"><label class="active" >完成日期</label>
+            <input  type="text" id="date" class="datepicker" [(ngModel)]="updateTask.finishDate">
+
+          </div>
+        </div>
+        <div class="row">
+
+
+          <div class="col s12">
+            <label class="active" >活动主题</label>
+            <div [ngClass]="{'select':a.name ==updateTask.mainEventName }" class="chip" *ngFor="let a of tsks | async" (click)="selectEvent(a.name)">
+              {{a.name}}
+            </div>
+
+
+            <div [ngClass]="{'select': 'other' ==updateTask.mainEventName }" class="chip" (click)="selectEvent('other')" > 其他
+            </div>
+
+          </div>
+
+          <div class="input-field col s9">
+            <input id="content" type="text" class="validate" [(ngModel)]="updateTask.content" >
+            <label class="active" for="content">任务详情</label>
+          </div>
+          <div class="input-field col s3">
+            <input id="score" type="number" class="validate" [(ngModel)]="updateTask.score" >
+            <label class="active" for="score">积分</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <a  class="modal-action modal-close waves-effect waves-green btn-flat">取消</a>
+    <a  class="modal-action  waves-effect waves-green btn-flat" (click)="saveInfor()">保存</a>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+

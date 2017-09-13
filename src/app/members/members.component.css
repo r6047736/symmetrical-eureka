@@ -1,0 +1,68 @@
+.activity_info {
+  //background:#323035;
+  padding:0.1em;
+  //color:white;
+}
+
+#addEvent .modal-content{
+  min-height:400px;
+}
+.chip{
+  cursor: pointer;
+}
+.select{
+  background: tomato;
+  color:white;
+}
+
+.toggleEvent{
+  color: #91d7ff;
+  padding:8px 10px 8px 10px;
+  background: #2f2d32;
+  display: block;
+}
+
+
+tbody
+{
+
+  border-top: 3px solid rgb(47, 45, 50) !important;
+
+}
+
+table tr{
+  padding: 5px;
+}
+table,
+thead,
+tbody{
+  border:0px ;
+  background: transparent;
+  color: #816A98;
+  text-transform: uppercase;
+}
+.activity_info.approval{
+  color:lightseagreen;
+}
+.activity_info.pending{
+  color:mediumorchid;
+}
+
+
+tr,
+td{
+  position: relative;
+}
+.needtask{
+  position: absolute;
+  top:20px;
+  left:15px;
+  display: block;
+  height:10px;
+  width:10px;
+
+  border-radius:10px;
+  background: greenyellow;
+}
+
+

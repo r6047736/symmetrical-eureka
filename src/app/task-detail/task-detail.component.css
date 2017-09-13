@@ -1,0 +1,22 @@
+.goback{
+
+  background: #323035;
+  color: #635373;
+  padding:10px;
+  margin:10px;
+  margin-bottom: 20px;
+}
+.select{
+  background: tomato;
+  color:white;
+}
+
+thead,
+tbody,
+tr,
+table tbody tr:nth-child(even),
+table tbody tr:nth-child(odd){
+  border:0px;
+  color: #a5a5a5;
+  background: #323035;
+}

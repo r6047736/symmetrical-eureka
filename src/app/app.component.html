@@ -1,45 +1,39 @@
+
+
+
+
+
+  <register-login *ngIf="!authService.user ||  !authService.profile.realName" >
+  </register-login>
+
 <div class="row" >
   <div>
     <button (click)="login()" *ngIf="!authService.user">Login With Facebook</button>
+    <div class="welcome_st" *ngIf="authService.profile.realName ==null && authService.user " >
+      请先完善您的信息
+    </div>
   </div>
-  <div class="" *ngIf="authService.profile.name ==null && authService.user " >
-    <input class="infor" placeholder="你的外号" [(ngModel)]="userName" >
-    <input class="infor" placeholder="部门" [(ngModel)]="userDep" >
-    <input class="infor" placeholder="真实姓名" [(ngModel)]="userRealName" >
-    <a id="confirmName"  (click)="changeName()">确认</a>
-  </div>
-  <div class="welcome_st" *ngIf="authService.profile.name !=null && authService.user " >
-    Welcome back ,   {{authService.profile.name}}
+  <div class="welcome_st" *ngIf="authService.profile.realName !=null && authService.user " >
+    Welcome back ,   {{authService.profile.realName}}
   </div>
 
 
 </div>
 
-<float-button></float-button>
-<members-list></members-list>
+<float-button ></float-button>
 
+  <router-outlet></router-outlet>
 
-<div class="row columns">
-
-
-
-
-
-
-
-
+<div class="row columns" *ngIf="authService.profile.realName !=null && authService.user" >
 
   <input type="text" id="message" *ngIf="authService.user" placeholder="Chat here..." (keyup.enter)="chatSend($event.target.value)" [(ngModel)]="msgVal" />
-
-
-
-
-
-  <div class="chat-container" *ngFor="let item of items | async ">
+<div class="chat-box scroll-bar">
+  <div class="chat-container" *ngFor="let item of items | async | reverse ">
     <a href="#">{{item.name}}</a>
-
     <p>{{item.message}}</p>
   </div>
+</div>
+
 
 
 </div>

@@ -1,0 +1,76 @@
+.register-panel{
+  background: #ff486a;
+  width:300px;
+  height:100%;
+  border:1px solid black;
+  margin:  0 auto;
+}
+#r-l-element{
+  height:100vh;
+  width:100vw;
+  //background: tomato;
+
+}
+.valign-wrapper{
+  margin: 0 auto;
+}
+.signUpLabel{
+
+}
+
+.signUpLabel{
+
+}
+.facebook_login img{
+  margin-top:5px;
+  height:30px;
+  width:30px;
+}
+
+.signUpLabel{
+  //padding: 10px;
+  color:tomato;
+  //background: tomato;
+  //margin-bottom: 15px;
+
+
+}
+.chip.select{
+  color:white;
+  background: tomato;
+}
+#info-init{
+  width:300px;
+}
+#login_page,
+card-reveal,
+#info-init
+{
+  border-radius: 30px;
+  color:#3f3a42;
+  //background: #3f3a42;
+
+  max-width:300px;
+  min-height:400px;
+}
+
+.card .card-content{
+  text-align: center;
+}
+.border{
+  border:tomato 1px solid ;
+
+}
+.login_form{
+
+}
+.login_form{
+  text-align: center;
+  margin:  0 auto;
+}
+.login_form img{
+  heigth:100px;
+  width:100px;
+
+
+}

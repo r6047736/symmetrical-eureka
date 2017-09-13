@@ -1,0 +1,14 @@
+<div class="fixed-action-btn horizontal" *ngIf="auth.user">
+  <a class="btn-floating btn-large red">
+    <i class="large material-icons">mode_edit</i>
+  </a>
+  <ul>
+    <li><a class="btn-floating red modal-trigger" href="#addEvent"><i class="material-icons"  >event</i></a></li>
+
+    <li><a class="btn-floating green"><i class="material-icons" (click)="awaitTask()" >priority_high</i></a></li>
+    <li><a class="btn-floating blue"><i class="material-icons" (click)="logout()">close</i></a></li>
+  </ul>
+</div>
+
+
+

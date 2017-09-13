@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {FormsModule} from "@angular/forms";
-
+import { RouterModule }   from '@angular/router';
 
 import {AngularFireModule } from 'angularfire2';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
@@ -22,7 +22,10 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MdButtonModule, MdCardModule, MdMenuModule, MdToolbarModule, MdIconModule } from '@angular/material';
 import { KeysPipe } from './keys.pipe';
 import { FloatButtonComponent } from './float-button/float-button.component';
-
+import { ReversePipe } from './reverse.pipe';
+import { RegisterLoginComponent } from './register-login/register-login.component';
+import { TaskDetailComponent } from './task-detail/task-detail.component';
+import {AppRoutingModule} from './app-routing.module';
 
 export const firebaseConfig = {
   apiKey: "AIzaSyBCFVyZG3tV1AKr1pcYaWL9TduR7me7eRs",
@@ -39,7 +42,10 @@ export const firebaseConfig = {
     AppComponent,
     MembersComponent,
     KeysPipe,
-    FloatButtonComponent
+    FloatButtonComponent,
+    ReversePipe,
+    RegisterLoginComponent,
+    TaskDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -56,7 +62,8 @@ export const firebaseConfig = {
     MdMenuModule,
     MdCardModule,
     MdToolbarModule,
-    MdIconModule
+    MdIconModule,
+    AppRoutingModule
 
   ],
   providers: [AuthService,MemberdbService,TasksService],
